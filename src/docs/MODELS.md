@@ -20,7 +20,7 @@ Model Architecture planning
      -slug
      -title
      -description
-     -allowed membership       (foreignkey to the Membership)
+     -allowed membership       (ManyToManyField to the Membership)
 
  Lesson    
      -slug
