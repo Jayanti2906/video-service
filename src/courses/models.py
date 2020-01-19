@@ -9,6 +9,10 @@ class Course(models.Model):
     description = models.TextField()
     allowed_memberships = models.ManyToManyField(Membership)
 
+
+    #A __str__() is a special method 
+    # which tells Python how to display an object in human readable form. 
+
     def __str__(self):
         return self.title
 

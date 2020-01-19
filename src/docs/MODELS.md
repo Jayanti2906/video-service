@@ -25,7 +25,7 @@ Model Architecture planning
  Lesson    
      -slug
      -title
-     -Course                   (foreignkey to Course)
+     -course                   (foreignkey to Course)
      -position
      -video
      -thumbnail

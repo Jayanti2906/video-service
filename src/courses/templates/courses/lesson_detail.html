@@ -1,3 +1,4 @@
+{% extends 'courses/base.html' %}
 {% block post_detail_link %}
 {% if object is not None %}
 	<li><a href="{{ object.course.get_absolute_url }}">{{ object.course.title }}</a></li>
@@ -26,8 +27,7 @@
 				<h3>Upgrade membership</h3>
 				<p>To view this course you'll need to upgrade your membership</p>
 				<br>
-				<!--<a href="{% url 'memberships:select' %}"><button class="btn btn-warning">Check out memberships</button></a>
-				-->
+				<a href="{% url 'memberships:select' %}"><button class="btn btn-warning">Check out memberships</button></a>
                 <hr>
 				{% endif %}
 			</div>

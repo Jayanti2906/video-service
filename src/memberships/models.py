@@ -51,13 +51,18 @@ def post_save_usermembership_create(sender,instance, created, *args, **kwargs):
 #it connects the sender and receiver 
 post_save.connect(post_save_usermembership_create,sender=settings.AUTH_USER_MODEL)
 
-
+ 
 
 class Subscription(models.Model):
     user_membership = models.ForeignKey(UserMembership, on_delete=models.CASCADE)
     stripe_subscription_id = models.CharField(max_length=40)
-    active =  models.BooleanField(default = True)    
+    active =  models.BooleanField(default = True) 
+      
 
     def __str__(self):
-        return self.user_membership.user.username    
+        return self.user_membership.user.username   
+
+
+    
+     
 
