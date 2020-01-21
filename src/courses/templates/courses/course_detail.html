@@ -7,9 +7,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4 col-md-4">
-				<h3>Course Detail View Page</h3>
+				<!--<h1 style="color:DodgerBlue;"> Course Detail</h1> -->
 				<h3>{{ object.title }}</h3>
-				<p>{{ object.description }}</p>
+				<p>Level : {{ object.description }}</p>
 				<ol>
 					{% for lesson in object.lessons %}
 					<li><a href="{{ lesson.get_absolute_url }}">{{ lesson.title }}</a></li>
