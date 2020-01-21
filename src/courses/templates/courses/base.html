@@ -13,6 +13,7 @@
 
 	<div style="background-color:lightblue" class="container">
 		<ol style="background-color:lightblue" class='breadcrumb'>
+		    
 
 	        <li><a style="color:Tomato;" href="{% url 'memberships:profile' %}">Profile</a></li>
 			
@@ -30,9 +31,44 @@
 		
 	</div>
 	<h1> <center> Welcome to Seneca Ubiq </center> </h1>
+	<center> 
+			     <form action="/search" method="GET" value="{{request.GET.q}}">
+                    Search <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search course"/>
+                        <input type="submit" name="submit" value="Search"/>
+                 </form>
+
+
+                    {% if submitbutton == 'Search' and request.GET.q != '' %}
+
+					{% if results %}
+					<h1>Results for <b>{{ request.GET.q }}</b></h1>
+					<br/><br/>
+
+					{% for result in results %}
+
+						<div>
+						<h3>
+						{{result.title}}
+						<br/>
+
+						{{result.description}}
+						
+						<br/>
+						</h3>
+						</div>
+
+					{% endfor %}
+					{% else %}
+					No search results for this query
+					{% endif %}
+					{% endif %}
+		         
+		
+		    </center>
 
 	{% block content %}
 	{% endblock content %}
+	
 
 	<script
   	src="https://code.jquery.com/jquery-3.3.1.js"

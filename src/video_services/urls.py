@@ -17,11 +17,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from courses.views import searchposts
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('courses/', include('courses.urls', namespace='courses')),
     path('memberships/', include('memberships.urls', namespace='memberships')),
+    path('search/', searchposts),
 ]
 
 if settings.DEBUG:

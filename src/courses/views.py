@@ -2,6 +2,31 @@ from django.shortcuts import render
 from django.views.generic import ListView,DetailView, View
 from .models import Course
 from memberships.models import UserMembership
+from django.db.models import Q
+
+
+def searchposts(request):
+    if request.method == 'GET':
+        query= request.GET.get('q')
+        submitbutton= request.GET.get('submit')
+        print(query)
+        if query is not None:
+            lookups= Q(title__icontains=query) | Q(description__icontains=query)
+
+            results= Course.objects.filter(lookups).distinct()
+            #print(results.title)
+            print('hii')
+
+            context={'results': results,
+                     'submitbutton': submitbutton}
+
+            return render(request, 'courses/base.html', context)
+
+        else:
+            return render(request, 'courses/list.html')
+
+    else:
+        return render(request, 'courses/base.html')
 
 class CourseListView(ListView):
     model = Course
@@ -31,3 +56,4 @@ class LessonDetailView(View):
             context = {'object':lesson}
 
         return render(request,'courses/lesson_detail.html',context)  
+
