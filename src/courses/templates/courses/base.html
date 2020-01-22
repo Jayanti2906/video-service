@@ -14,8 +14,9 @@
 	<div style="background-color:lightblue" class="container">
 		<ol style="background-color:lightblue" class='breadcrumb'>
 		    
-
+			<li><a style="color:Tomato;" href="{% url 'courses:list' %}">Home</a></li>
 	        <li><a style="color:Tomato;" href="{% url 'memberships:profile' %}">Profile</a></li>
+			
 			
 	        
 	        {% block post_detail_link %}
@@ -48,7 +49,7 @@
 
 						<div>
 						<h3>
-						{{result.title}}
+						<li><a href="{{ result.get_absolute_url }}">{{ result.title }}</a></li>
 						<br/>
 
 						{{result.description}}
