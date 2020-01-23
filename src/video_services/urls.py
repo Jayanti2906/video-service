@@ -17,14 +17,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from courses.views import searchposts
+from courses.views import searchposts,HighlightedView
 
-urlpatterns = [
+urlpatterns =[
     path('admin/', admin.site.urls),
     path('courses/', include('courses.urls', namespace='courses')),
     path('memberships/', include('memberships.urls', namespace='memberships')),
     path('search/', searchposts),
+    path('welcome/',HighlightedView.as_view()), #related to courses:highlight in models.py
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

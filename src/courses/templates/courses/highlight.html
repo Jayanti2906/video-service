@@ -1,0 +1,28 @@
+{% extends 'courses/base.html' %}
+
+
+{% block content %}
+	<div class='container'>
+	Ad page
+	<h1> Our all new dynamic course ! </h1>
+		<h3><a href="{{ course.get_absolute_url }}">{{ object.title }} </a></h3>
+				<video controls
+					   controlsList="nodownload"
+					   poster="{{ object.thumbnail.url }}"
+				       src="/static{{ object.video_url }}"
+					   
+
+				       width="800"
+				       height="450">
+				    Sorry, your browser doesn't support embedded videos.
+				</video>
+				
+
+
+				
+				<p>{{ object.description }}</p>
+				To view more courses  <a href="{% url 'courses:list' %}"><button class="btn btn-warning">Click Here</button></a>
+
+	</div>
+
+{% endblock content %}

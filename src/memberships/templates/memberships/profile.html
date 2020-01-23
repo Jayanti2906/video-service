@@ -14,8 +14,8 @@
 					<a href="{% url 'memberships:cancel' %}">Cancel subscription</a>
 
 				{% else %}
-					<p>You don't have an active membership plan. Check them out here 
-						<a href= "{% url 'memberships:select' %}" ></a>
+					<p>You don't have an active membership plan. Go to <a style="color:Tomato;" href="{% url 'memberships:select' %}">Memberships</a> to get one! 
+						
 					</p>
 				{% endif %}
 			{% endif %}
