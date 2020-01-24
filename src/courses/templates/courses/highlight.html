@@ -2,27 +2,46 @@
 
 
 {% block content %}
-	<div class='container'>
-	Ad page
-	<h1> Our all new dynamic course ! </h1>
-		<h3><a href="{{ course.get_absolute_url }}">{{ object.title }} </a></h3>
-				<video controls
+<br>
+ <br>
+
+
+ <div class="container">
+ <div class="row">
+    
+	<div class="col-sm-6" >
+      <video controls
 					   controlsList="nodownload"
 					   poster="{{ object.thumbnail.url }}"
 				       src="/static{{ object.video_url }}"
 					   
 
-				       width="800"
-				       height="450">
+				       width="450"
+				       height="500">
 				    Sorry, your browser doesn't support embedded videos.
-				</video>
-				
+			</video>
+    </div>
 
+	<br>
 
-				
-				<p>{{ object.description }}</p>
-				To view more courses  <a href="{% url 'courses:list' %}"><button class="btn btn-warning">Click Here</button></a>
-
+    <div class="col-sm-6">
+	
+	
+	<h2><a href="{{ course.get_absolute_url }}">{{ object.title }} </a></h2>
+		    <h3> Our all new dynamic course ! </h3>
+		    <h3><p>{{ object.description }}</p></h3>
+		
+				<h3 style="color:Tomato;">To view more courses </h3>  
+				<a href="{% url 'courses:list' %}">
+				<button class="btn btn-warning">Click Here</button></a>
+    
 	</div>
+
+</div>
+</div>
+	
+	    
+	
+	
 
 {% endblock content %}
