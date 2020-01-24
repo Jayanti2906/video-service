@@ -43,11 +43,15 @@ class CourseDetailView(DetailView):
     model = Course
 
 class HighlightedView(ListView):
+   
     def get(self, request, *args, **kwargs):
         obj = HighlightedCourse.objects.all().first()
         course = obj.course
+        model = Course.objects.all()
         context = {'object':obj,
-        'course': course
+        'course': course,
+        'clist':model,
+        
         }
         return render(request,'courses/highlight.html',context)  
     
