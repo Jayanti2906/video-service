@@ -8,6 +8,8 @@ class Course(models.Model):
     title = models.CharField(max_length=120)
     description = models.TextField()
     allowed_memberships = models.ManyToManyField(Membership)
+    imageslot = models.ImageField(default='')
+    
 
 
     #A __str__() is a special method 

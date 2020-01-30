@@ -11,8 +11,13 @@
 				<h1 style="color:Tomato;">Courses On Offering</h1>
 				{% for object in object_list %}
 
-					<a href="{{ object.get_absolute_url }}">{{ object }}</a> <br>
-
+					<img src="{{ object.imageslot }}"  width="250" height="250" >
+					<br>
+					<p>
+					<a href="{{ object.get_absolute_url }}">{{ object }}</a> 
+					<br>
+					{{object.description}}
+                    </p>
 				{% endfor %}
 			</div>
 		</div>

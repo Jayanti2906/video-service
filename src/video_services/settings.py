@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     
     'memberships',
     'courses',
+    #'storages',
 ]
 
 MIDDLEWARE = [
@@ -139,6 +140,9 @@ else:
     #live keys
     STRIPE_PUBLISHABLE_KEY = ''
     STRIPE_SECRET_KEY = ''
+
+
+
 
 
 
